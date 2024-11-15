@@ -1,0 +1,43 @@
+.circle-container {
+  width: 800px;
+  border: 2.5px solid black;
+  height: 600px;
+  position: relative;
+  background-color: #f0f0f0; /* Phông nền cho container */
+}
+
+.circle {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  background-color: transparent; /* Ban đầu không có nền */
+  transition: background-color 2s ease-out, opacity 3s ease-out; /* Chuyển đổi nền và opacity */
+}
+.circle.active {
+  background-color: rgba(255, 94, 0, 0.87); /* Màu đỏ đậm ngay lập tức */
+  opacity: 1; /* Độ mờ đầy đủ ngay lập tức */
+  transition: opacity 3s ease-out; /* Chỉ áp dụng hiệu ứng mờ dần cho opacity */
+}
+
+.circle.hidden {
+  background-color: rgba(255, 0, 0, 0); /* Mờ dần từ màu đỏ sang trong suốt */
+  opacity: 0; /* Hoàn toàn biến mất */
+  transition: background-color 3s ease-out, opacity 3s ease-out; /* Hiệu ứng mờ dần cho cả màu và độ mờ */
+}
+
+.countdown-timer {
+  position: absolute;
+  bottom: 4px; /* Đặt dưới vòng tròn */
+  font-size: 12px;
+  opacity: 1;
+  color: white;
+}
+
+.circle.hidden .countdown-timer {
+  display: none; /* Ẩn số đếm ngược khi vòng tròn bị ẩn */
+}
