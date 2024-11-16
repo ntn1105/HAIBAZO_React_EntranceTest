@@ -48,7 +48,6 @@ const Controls = ({ setGeneratedPoints, status, isPlaying, isAutoPlay, setIsAuto
         <button onClick={handlePlayClick}>
           {isPlaying || status === "ALL CLEARED" || status === "GAME OVER" ? "Restart" : "Play"}
         </button>
-        {/* Chỉ hiển thị AutoPlay khi game đang chơi */}
         {isPlaying && (
           <button onClick={toggleAutoPlay}>
             {isAutoPlay ? "Auto Play OFF" : "Auto Play ON"}
