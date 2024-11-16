@@ -51,7 +51,7 @@ const Controls = ({ setGeneratedPoints, status, isPlaying, isAutoPlay, setIsAuto
         {/* Chỉ hiển thị AutoPlay khi game đang chơi */}
         {isPlaying && (
           <button onClick={toggleAutoPlay}>
-            {isAutoPlay ? "Auto Play ON" : "Auto Play OFF"}
+            {isAutoPlay ? "Auto Play OFF" : "Auto Play ON"}
           </button>
         )}
       </div>

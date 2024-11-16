@@ -62,20 +62,25 @@ const Circle = ({ points, onCircleClick }) => {
 
   const circles = circlePoints.map((point) => (
     <div
-      className={`circle 
-        ${hiddenCircleIds.includes(point.id) ? "hidden" : ""} 
-        ${activeCircleIds.includes(point.id) ? "active" : ""}`}
+      id={`circle-${point.id}`} // Thêm ID để hỗ trợ Auto Play
+      className={`circle ${
+        hiddenCircleIds.includes(point.id) ? "hidden" : ""
+      } ${activeCircleIds.includes(point.id) ? "active" : ""}`}
       key={point.id}
       style={{
         left: `${point.position.x}px`,
         top: `${point.position.y}px`,
+        background: activeCircleIds.includes(point.id)
+          ? `rgba(255, 165, 0, ${countdowns[point.id]})`
+          : "initial",
       }}
       onClick={() => handleCircleClick(point.id)}
     >
       <span>{point.id}</span>
-      {countdowns[point.id] !== undefined && !hiddenCircleIds.includes(point.id) && (
-        <div className="countdown-timer">{countdowns[point.id]}s</div>
-      )}
+      {countdowns[point.id] !== undefined &&
+        !hiddenCircleIds.includes(point.id) && (
+          <div className="countdown-timer">{countdowns[point.id]}s</div>
+        )}
     </div>
   ));
 
