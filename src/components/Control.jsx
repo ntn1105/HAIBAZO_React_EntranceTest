@@ -17,21 +17,34 @@ const Controls = ({ setGeneratedPoints, status, isPlaying, isAutoPlay, setIsAuto
       clearInterval(intervalId);
       setIntervalId(null);
     }
+
     return () => clearInterval(intervalId);
   }, [isPlaying]);
 
   const handlePlayClick = () => {
-    setTime(0.0); // Reset time
-    setGeneratedPoints(parseInt(points, 10) || 0); // Set points to start the game
+    setTime(0.0);
+    setGeneratedPoints(parseInt(points, 10) || 0);
   };
 
   const toggleAutoPlay = () => {
-    setIsAutoPlay(!isAutoPlay); // Toggle AutoPlay
+    setIsAutoPlay(!isAutoPlay);
+  };
+
+  const getStatusColor = (status) => {
+    if (status === "GAME OVER") {
+      return "rgba(255, 90, 0,1)"; 
+    }
+    if (status === "ALL CLEARED") {
+      return "green"; 
+    }
+    return "initial"; 
   };
 
   return (
     <div className="controls">
-      <span>{status}</span>
+      <span className="status" style={{ color: getStatusColor(status) }}>
+        {status}
+      </span>
       <div className="Point">
         <label>Points:</label>
         <input
